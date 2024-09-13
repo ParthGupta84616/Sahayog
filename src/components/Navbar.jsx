@@ -61,8 +61,7 @@ export default function Navbar() {
             to="/login"
             aria-label="Signup"
           >
-            gi
-            hgghtxhf<span className="absolute -end-full transition-all group-hover:end-4">
+            <span className="absolute -end-full transition-all group-hover:end-4">
               <svg
                 className="w-5 h-5 rtl:rotate-180"
                 xmlns="http://www.w3.org/2000/svg"

@@ -3,7 +3,7 @@ import GraphsAdmin from "./GraphsAdmin";
 
 // Card component to avoid redundancy
 const Card = ({ title, count }) => (
-  <div className="md:w-1/2 lg:w-1/3 mb-4">
+  <div className="sm:w-1/2 md:w-1/2 lg:w-1/4 mb-4">
     <div className=" shadow-sm shadow-black p-6 rounded-md mx-1">
       <h1 className="text-lg font-medium text-gray-900 mb-3">{title}</h1>
       <p className="leading-relaxed mb-3 text-xl font-semibold">{count}</p>
@@ -32,7 +32,6 @@ const Card = ({ title, count }) => (
   </div>
 );
 
-
 const DashTherapist = () => {
   return (
     <div className="container mx-auto py-8 flex flex-wrap justify-center">
@@ -44,6 +43,8 @@ const DashTherapist = () => {
 
       {/* Case Report */}
       <Card title="Case Report" count="10" />
+      <Card title="Case Updates" count="7" />
+
       <GraphsAdmin />
     </div>
   );

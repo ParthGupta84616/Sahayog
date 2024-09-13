@@ -32,18 +32,14 @@ const Card = ({ title, count }) => (
   </div>
 );
 
-
 const DashboardSuper = () => {
   return (
     <div className="container mx-auto py-8 flex flex-wrap justify-center">
-      {/* Number of Cases */}
       <Card title="Number of Cases" count="11" />
 
-      {/* Live Cases */}
       <Card title="Live Cases" count="16" />
-
-      {/* Case Report */}
       <Card title="Case Report" count="10" />
+      <Card title="Case Updates" count="7" />
       <GraphsAdmin />
     </div>
   );
