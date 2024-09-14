@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className="flex flex-col ">
       <div className="  max-w-full -mb-28 ">
-        <img className="w-full h-[550px] object-center" src={speech} alt="" />
+        <img className="w-full h-[750px] object-center" src={speech} alt="" />
       </div>
       {/* Buttons  */}
       <div className=" bg-white rounded-t-[100px]">

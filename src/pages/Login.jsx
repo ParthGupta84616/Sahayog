@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -98,13 +98,12 @@ const LoginForm = () => {
           <p className="inline-flex items-center text-gray-700 font-medium text-xs text-center">
             <span className="ml-2">
               You don't have an account?
-              <a href="#" className="text-xs ml-2 text-blue-500 font-semibold">
+              <Link to="/" className="text-xs ml-2 text-blue-500 font-semibold">
                 Register now &rarr;
-              </a>
+              </Link>
             </span>
           </p>
         </div>
-
       </form>
     </div>
   );

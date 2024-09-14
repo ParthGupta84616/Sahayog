@@ -24,21 +24,25 @@ const Dashboard = () => {
         <Card
           title="Admin Dashboard"
           description="Access admin features and settings."
+          className="w-1/2"
           route="/dashadmin"
         />
         <Card
           title="Supervisor Dashboard"
           description="Access superuser features and settings."
+          className="w-1/2"
           route="/dashsuper"
         />
         <Card
           title="Therapist Dashboard"
           description="Access therapist features and settings."
+          className="w-1/2"
           route="/dashtherapist"
         />
         <Card
           title="Patient Dashboard"
           description="Access patient features and settings."
+          className="w-1/2"
           route="/dashpatient"
         />
       </div>
