@@ -1,50 +1,85 @@
 import React from "react";
-
 import speech from "../assets/speech.jpg";
 import { MdOutlineDownloading } from "react-icons/md";
 import { RiSecurePaymentFill } from "react-icons/ri";
 import { TbReport } from "react-icons/tb";
-import { FaDroplet } from "react-icons/fa6";
+import { IoWater } from "react-icons/io5"; // Corrected icon import
+
 const Home = () => {
   return (
-    <div className="flex flex-col ">
-      <div className="  max-w-full -mb-28 ">
-        <img className="w-full h-[750px] object-center" src={speech} alt="" />
+    <div className="flex flex-col">
+      {/* Background Image with Animation */}
+      <div className="w-full overflow-hidden -mb-12 md:-mb-20 lg:-mb-24">
+        <img
+          className="w-full h-auto max-h-[750px] object-cover object-center animate-zoom"
+          src={speech}
+          alt="Speech"
+        />
       </div>
-      {/* Buttons  */}
-      <div className=" bg-white rounded-t-[100px]">
-        <div className="flex flex-wrap justify-center gap-8 p-2 my-4">
-          <button className="px-4 py-2  bg-[#ca4e00] text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-[#fc0f22]">
-            <p className="text-md">Book Appointment</p>
+
+      {/* Buttons */}
+      <div className="rounded-t-[50px] md:rounded-t-[75px] lg:rounded-t-[100px] pt-10 bg-gray-100">
+        <div className="flex flex-wrap justify-center items-center gap-4 px-10">
+          <button
+            className="px-4 py-2 sm:px-6 sm:py-3 md:px-6 md:py-3 w-44 md:w-52 lg:w-64 bg-[#ca4e00] text-white font-bold rounded-full
+    transition-transform transform-gpu hover:-tr hover:bg-gray-100nslate-y-1 hover:shadow-xl hover:bg-[#fc0f22]"
+          >
+            <p className="text-sm sm:text-md md:text-md lg:text-lg">
+              Book Appointment
+            </p>
           </button>
-          <button className="px-8 py-4 bg-[#ca4e00] text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-[#fc0f22]">
-            <p className="text-md">Book Teleconsultation Appointment</p>
+          <button
+            className="px-4 py-2 sm:px-6 sm:py-3 md:px-6 md:py-3 w-72 md:w-80 lg:w-96 bg-[#ca4e00] text-white font-bold rounded-full
+    transition-transform transform-gpu hover:-tr hover:bg-gray-100nslate-y-1 hover:shadow-xl hover:bg-[#fc0f22]"
+          >
+            <p className="text-sm sm:text-md md:text-md lg:text-lg">
+              Book Teleconsultation Appointment
+            </p>
           </button>
-          <button className="px-8 py-4 bg-[#ca4e00] text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-[#fc0f22]">
-            <p className="text-md">Scan and share</p>
+          <button
+            className="px-4 py-2 sm:px-6 sm:py-3 md:px-6 md:py-3 w-44 md:w-52 lg:w-64 bg-[#ca4e00] text-white font-bold rounded-full
+    transition-transform transform-gpu hover:-tr hover:bg-gray-100nslate-y-1 hover:shadow-xl hover:bg-[#fc0f22]"
+          >
+            <p className="text-sm sm:text-md md:text-md lg:text-lg">
+              Scan and Share
+            </p>
           </button>
         </div>
-        <section className="container p-6 mx-auto space-y-3  dark:text-black">
-          <h4 className="text-xl font-bold text-gray-700 capitalize dark:text-gray-800 md:text-3xl text-center">
+
+        <section className="container p-6 mx-auto space-y-3 text-gray-700 dark:text-gray-800">
+          <h4 className="text-xl font-bold capitalize md:text-3xl text-center">
             Other Facilities
           </h4>
 
-          <div className="flex items-center justify-center">
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 md:grid-col-3 md:gap-6 sm:grid-cols-2">
-              <div className="h-36 rounded-lg bg-gray-100 p-8 flex flex-col items-center ">
+          <div className="flex items-center py-4 justify-center">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 md:grid-cols-2 md:gap-6 sm:grid-cols-2">
+              <div
+                className="h-36 transition-transform transform-gpu hover:-translate-y-1 hover:bg-gray-100 shadow-md hover:shadow-xl
+               rounded-lg bg-gray-100 p-8 flex flex-col items-center"
+              >
                 <MdOutlineDownloading size={40} className="mb-4" />
                 <p className="text-lg">e-OPD Card</p>
               </div>
-              <div className="h-36 rounded-lg bg-gray-100 p-8 flex flex-col items-center">
+              <div
+                className="h-36 transition-transform transform-gpu hover:-translate-y-1 hover:bg-gray-100 shadow-md hover:shadow-xl
+               rounded-lg bg-gray-100 p-8 flex flex-col items-center"
+              >
                 <RiSecurePaymentFill size={40} className="mb-4" />
                 <p className="text-lg">Payments</p>
               </div>
-              <div className="h-36 rounded-lg bg-gray-100 p-8 flex flex-col items-center">
+              <div
+                className="h-36 transition-transform transform-gpu hover:-translate-y- hover:bg-gray-100 shadow-md hover:shadow-xl
+               rounded-lg bg-gray-100 p-8 flex flex-col items-center"
+              >
                 <TbReport size={40} className="mb-4" />
-                <p className="text-lg">Lab reports</p>
+                <p className="text-lg">Lab Reports</p>
               </div>
-              <div className="h-36 rounded-lg bg-gray-100 p-8 flex flex-col items-center">
-                <FaDroplet size={40} className="mb-4" />
+              <div
+                className="h-36 transition-transform transform-gpu hover:-translate-y- hover:bg-gray-100 shadow-md hover:shadow-xl
+               rounded-lg bg-gray-100 p-8 flex flex-col items-center"
+              >
+                <IoWater size={40} className="mb-4" />{" "}
+                {/* Corrected icon usage */}
                 <p className="text-lg">Blood Availability</p>
               </div>
             </div>
