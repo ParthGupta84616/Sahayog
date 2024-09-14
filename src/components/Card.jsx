@@ -6,7 +6,7 @@ const Card = ({ title, description, route }) => {
 
   return (
     <div
-      className="bg-white p-6 rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition-shadow duration-300"
+      className=" bg-white p-6 rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition-shadow duration-300"
       onClick={() => navigate(route)}
     >
       <h2 className="text-xl font-semibold mb-2">{title}</h2>
