@@ -21,24 +21,24 @@ const Home = () => {
       <div className="rounded-t-[50px] md:rounded-t-[75px] lg:rounded-t-[100px] pt-10 bg-gray-100">
         <div className="flex flex-wrap justify-center items-center gap-4 px-10">
           <button
-            className="px-4 py-2 sm:px-6 sm:py-3 md:px-6 md:py-3 w-44 md:w-52 lg:w-64 bg-[#ca4e00] text-white font-bold rounded-full
-    transition-transform transform-gpu hover:-tr hover:bg-gray-100nslate-y-1 hover:shadow-xl hover:bg-[#fc0f22]"
+            className="px-4 py-2 sm:px-6 sm:py-3 md:px-6 md:py-3 w-44 md:w-52 lg:w-64 bg-indigo-900 text-white font-bold rounded-full
+    transition-transform transform-gpu hover:-tr hover:bg-gray-100nslate-y-1 hover:shadow-xl hover:bg-indigo-700"
           >
             <p className="text-sm sm:text-md md:text-md lg:text-lg">
               Book Appointment
             </p>
           </button>
           <button
-            className="px-4 py-2 sm:px-6 sm:py-3 md:px-6 md:py-3 w-72 md:w-80 lg:w-96 bg-[#ca4e00] text-white font-bold rounded-full
-    transition-transform transform-gpu hover:-tr hover:bg-gray-100nslate-y-1 hover:shadow-xl hover:bg-[#fc0f22]"
+            className="px-4 py-2 sm:px-6 sm:py-3 md:px-6 md:py-3 w-72 md:w-80 lg:w-96 bg-indigo-900 text-white font-bold rounded-full
+    transition-transform transform-gpu hover:-tr hover:bg-gray-100nslate-y-1 hover:shadow-xl hover:bg-indigo-700"
           >
             <p className="text-sm sm:text-md md:text-md lg:text-lg">
               Book Teleconsultation Appointment
             </p>
           </button>
           <button
-            className="px-4 py-2 sm:px-6 sm:py-3 md:px-6 md:py-3 w-44 md:w-52 lg:w-64 bg-[#ca4e00] text-white font-bold rounded-full
-    transition-transform transform-gpu hover:-tr hover:bg-gray-100nslate-y-1 hover:shadow-xl hover:bg-[#fc0f22]"
+            className="px-4 py-2 sm:px-6 sm:py-3 md:px-6 md:py-3 w-44 md:w-52 lg:w-64 bg-indigo-900 text-white font-bold rounded-full
+    transition-transform transform-gpu hover:-tr hover:bg-gray-100nslate-y-1 hover:shadow-xl hover:bg-indigo-700"
           >
             <p className="text-sm sm:text-md md:text-md lg:text-lg">
               Scan and Share

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import SAH from "../assets/Sahayog-square.png";
+import SAH from "../assets/Sahayog-full.png";
 import { Link } from "react-router-dom";
+import { IoMdNotifications } from "react-icons/io";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="bg-[#ca4e00] h-20 sm:h-24 md:h-28 lg:h-32 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12">
+    <div className="bg-indigo-900 h-16 sm:h-20 md:h-24 lg:h-24 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12">
       <header className="text-white body-font w-full">
         <div className="container mx-auto flex flex-wrap items-center justify-between">
           {/* Logo */}
@@ -22,7 +23,7 @@ export default function Navbar() {
             <img
               src={SAH}
               alt="logo"
-              className="w-16 sm:w-20 md:w-24 lg:w-28 aspect-square"
+              className="w-32 sm:w-40 md:w-44 lg:w-56"
             />
           </Link>
 
@@ -66,7 +67,12 @@ export default function Navbar() {
             >
               Dashboard
             </Link>
-
+            <div className="items-center p-2 gap-2 ">
+              <IoMdNotifications
+                size={26}
+                className="text-[#fff] text-sm sm:text-md md:text-lg lg:text-xl"
+              />
+            </div>
             <Link
               className="group relative inline-flex items-center overflow-hidden rounded-3xl bg-green-400 px-4 py-2 sm:px-6 sm:py-2 text-white hover:text-gray-800 focus:outline-none focus:ring hover:bg-green-300"
               to="/login"
@@ -92,7 +98,6 @@ export default function Navbar() {
                 Login
               </div>
             </Link>
-
             <Link
               className="group relative inline-flex items-center overflow-hidden rounded-3xl bg-blue-400 px-4 py-2 sm:px-6 sm:py-2 text-white hover:text-gray-800 focus:outline-none focus:ring hover:bg-blue-300"
               to="/signup"
@@ -164,6 +169,9 @@ export default function Navbar() {
                 >
                   Dashboard
                 </Link>
+                <div>
+                  <p className="text-white text-xl">Notification</p>
+                </div>
                 <div className="flex flex-col items-center w-full gap-4 px-6 py-4">
                   <Link
                     className="py-2 px-6 rounded-3xl bg-green-400 text-white hover:bg-green-300 w-full max-w-xs text-center transition-colors duration-300 ease-in-out sm:px-8 sm:py-3"
