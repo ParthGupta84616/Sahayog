@@ -5,6 +5,7 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import LoginProvider from './Context/LoginProvider'; // Import your LoginProvider
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -12,7 +13,9 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <LoginProvider>
+        <App />
+      </LoginProvider>
     </Provider>
   </React.StrictMode>
 );

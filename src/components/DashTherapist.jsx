@@ -36,6 +36,7 @@ const DashTherapist = () => {
   return (
     <div className="container mx-auto py-8 flex flex-wrap justify-center">
       {/* Number of Cases */}
+
       <Card title="New Jobs Assigned" count="11" />
 
       {/* Live Cases */}

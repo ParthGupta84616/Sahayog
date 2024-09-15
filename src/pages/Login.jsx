@@ -1,112 +1,192 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
+import { useNavigate } from "react-router-dom";
+
+const Login = () => {
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [otp, setOtp] = useState("");
+  const [name, setName] = useState(""); // For patient login
+  const [role, setRole] = useState(""); // For staff login
+  const [staffNumber, setStaffNumber] = useState(""); // For staff number input
+  const [isStaff, setIsStaff] = useState(false); // Track if the user is a staff member
+  const navigate = useNavigate();
+
+  const handleRoleChange = (e) => {
+    const selectedRole = e.target.value;
+    setRole(selectedRole);
+    setIsStaff(selectedRole !== "patient"); // If role is not patient, it's staff
+    if (selectedRole === "patient") {
+      setStaffNumber(""); // Clear staff number if switching to patient
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Email:", email);
-    console.log("Password:", password);
-    console.log("Remember Me:", rememberMe);
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (isStaff) {
+      // Staff login
+      if (
+        user &&
+        user.mobileNumber === mobileNumber &&
+        user.otp === otp &&
+        user.role === role &&
+        user.staffNumber === staffNumber // Validate staff number
+      ) {
+        // Redirect to the appropriate dashboard based on role
+        switch (role) {
+          case "admin":
+            navigate("/admin");
+            break;
+          case "supervisor":
+            navigate("/supervisor");
+            break;
+          case "therapist":
+            navigate("/therapist");
+            break;
+          default:
+            alert("Invalid role");
+        }
+      } else {
+        alert("Invalid credentials");
+      }
+    } else {
+      // Patient login
+      if (
+        user &&
+        user.mobileNumber === mobileNumber &&
+        user.otp === otp &&
+        user.name === name
+      ) {
+        // Redirect to patient dashboard
+        navigate("/patient");
+      } else {
+        alert("Invalid credentials");
+      }
+    }
+  };
+
+  const handleUseTestData = () => {
+    // Predefined test data
+    const testData = {
+      admin: {
+        mobileNumber: "1234567891",
+        otp: "123456",
+        name: "Mayank",
+        staffNumber: "ad1234"
+      },
+      supervisor: {
+        mobileNumber: "1234567892",
+        otp: "123456",
+        name: "Mohit",
+        staffNumber: "su1234"
+      },
+      therapist: {
+        mobileNumber: "1234567893",
+        otp: "123456",
+        name: "Namish",
+        staffNumber: "th1234"
+      },
+      patient: {
+        mobileNumber: "1234567894",
+        otp: "123456",
+        name: "Patient1"
+      }
+    };
+
+    // Set test data based on role
+    if (role in testData) {
+      const data = testData[role];
+      setMobileNumber(data.mobileNumber);
+      setOtp(data.otp);
+      setName(data.name || "");
+      setStaffNumber(data.staffNumber || "");
+    } else {
+      alert("Please select a role to use test data.");
+    }
   };
 
   return (
-    <div className="h-screen flex justify-center items-center w-full">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form
         onSubmit={handleSubmit}
-        className="bg-grey-100 px-10 py-8 rounded-xl w-screen shadow-xl max-w-sm"
+        className="bg-white p-8 rounded shadow-md w-96"
       >
-        <div className="space-y-4">
-          <h1 className="text-center text-2xl font-semibold text-gray-600">
-            Login
-          </h1>
-          <hr />
-          <div className="flex items-center border-2 py-2 px-3 rounded-md mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+        <h2 className="text-2xl font-bold mb-4">Login</h2>
+        <label className="block mb-2">
+          Role:
+          <select
+            value={role}
+            onChange={handleRoleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            required
+          >
+            <option value="">Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="supervisor">Supervisor</option>
+            <option value="therapist">Therapist</option>
+            <option value="patient">Patient</option>
+          </select>
+        </label>
+        <label className="block mb-2">
+          Mobile Number:
+          <input
+            type="text"
+            value={mobileNumber}
+            onChange={(e) => setMobileNumber(e.target.value)}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            required
+          />
+        </label>
+        <label className="block mb-2">
+          OTP:
+          <input
+            type="text"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            required
+          />
+        </label>
+        {isStaff && (
+          <>
+            <label className="block mb-2">
+              Name:
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                required
               />
-            </svg>
-            <input
-              className="pl-2 outline-none border-none w-full"
-              type="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-              required
-            />
-          </div>
-          <div className="flex items-center border-2 py-2 px-3 rounded-md">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-gray-400"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                clipRule="evenodd"
+            </label>
+            <label className="block mb-2">
+              Staff Number:
+              <input
+                type="text"
+                value={staffNumber}
+                onChange={(e) => setStaffNumber(e.target.value)}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                required
               />
-            </svg>
-            <input
-              className="pl-2 outline-none border-none w-full"
-              type="password"
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-              required
-            />
-          </div>
-        </div>
-        <div className="flex justify-center items-center mt-4">
-          <p className="inline-flex items-center text-gray-700 font-medium text-xs text-center">
-            <input
-              type="checkbox"
-              id="rememberMeCheckbox"
-              name="rememberMe"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)}
-              className="mr-2"
-            />
-            <span className="text-xs font-semibold">Remember me?</span>
-          </p>
-        </div>
+            </label>
+          </>
+        )}
         <button
           type="submit"
-          id="login"
-          className="mt-6 w-full shadow-xl bg-[#ca4e00] hover:bg-[#fc0f22] text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000"
+          className="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
         >
           Login
         </button>
-        <hr />
-        <div className="flex justify-center items-center mt-4">
-          <p className="inline-flex items-center text-gray-700 font-medium text-xs text-center">
-            <span className="ml-2">
-              You don't have an account?
-              <Link to="/" className="text-xs ml-2 text-blue-500 font-semibold">
-                Register now &rarr;
-              </Link>
-            </span>
-          </p>
-        </div>
+        <button
+          type="button"
+          onClick={handleUseTestData}
+          className="w-full py-2 mt-4 bg-gray-500 text-white rounded-md hover:bg-gray-600"
+        >
+          Use Test Data
+        </button>
       </form>
     </div>
   );
 };
 
-export default LoginForm;
+export default Login;

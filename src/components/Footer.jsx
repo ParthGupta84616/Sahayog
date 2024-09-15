@@ -9,7 +9,7 @@ const img4 = "https://ors.gov.in/orsportal/assets/icons/nic_logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-700 py-6">
+    <footer className="bg-[#232929] py-6">
       <div className="container mx-auto px-4">
         {/* Image grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
