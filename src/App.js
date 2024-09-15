@@ -13,6 +13,7 @@ import DashAdmin from "./components/DashAdmin";
 import DashSuper from "./components/DashSuper";
 import DashTherapist from "./components/DashTherapist";
 import DashPatient from "./components/DashPatient";
+import About from "./pages/About";
 
 const router = createBrowserRouter([
   {
@@ -121,6 +122,16 @@ const router = createBrowserRouter([
       <div>
         <Navbar />
         <DashPatient />
+        <Footer />
+      </div>
+    ),
+  },
+  {
+    path: "/about",
+    element: (
+      <div>
+        <Navbar />
+        <About/>
         <Footer />
       </div>
     ),

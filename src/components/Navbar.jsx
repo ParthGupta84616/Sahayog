@@ -61,6 +61,13 @@ export default function Navbar() {
               Home
             </Link>
             <Link
+              to="/about"
+              className="hover:font-bold text-white"
+              aria-label="Home"
+            >
+             About
+            </Link>
+            <Link
               to="/dashboard"
               className="hover:font-bold text-white"
               aria-label="Dashboard"
