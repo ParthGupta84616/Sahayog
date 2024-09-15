@@ -8,6 +8,8 @@ import DashAdmin from "./components/DashAdmin";
 import DashPatient from "./components/DashPatient";
 import DashSuper from "./components/DashSuper";
 import DashTherapist from "./components/DashTherapist";
+import DashPatient from "./components/DashPatient";
+import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -81,6 +83,16 @@ const router = createBrowserRouter([
         <DashPatient />
         <Footer />
       </>
+    ),
+  },
+  {
+    path: "/about",
+    element: (
+      <div>
+        <Navbar />
+        <About/>
+        <Footer />
+      </div>
     ),
   },
 ]);
