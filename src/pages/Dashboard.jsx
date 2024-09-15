@@ -17,7 +17,7 @@ const Dashboard = () => {
           </div>
   
           <div class="pb-10 overflow-hidden md:p-10 lg:p-0 sm:pb-0">
-            <img id="heroImg1" class="transition-all duration-300 ease-in-out hover:scale-105 lg:w-full sm:mx-auto sm:w-4/6 sm:pb-12 lg:pb-0 opacity-65" src={report} alt="report image" width="550" height="488"/>
+            <img id="heroImg1" class="transition-all duration-300 ease-in-out hover:scale-105 lg:w-full sm:mx-auto sm:w-4/6 sm:pb-12 lg:pb-0 opacity-[90%]" src={report} alt="report image" width="550" height="488"/>
           </div>
         </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
