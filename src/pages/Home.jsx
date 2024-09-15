@@ -4,24 +4,29 @@ import { MdOutlineDownloading } from "react-icons/md";
 import { RiSecurePaymentFill } from "react-icons/ri";
 import { TbReport } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import Testimonials from "../components/Testimonials";
+import CoreFeatures from "../components/CoreFeatures";
+
+// Flattened testimonials array
+
+
 
 const Home = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <div className="bg-{#eff1f1} text-white py-8 px-4">
+      <div className="bg-[#eff1f1] text-black py-8 px-4">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center relative z-10">
           <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
-            <h2 className="text-4xl font-bold text-black leading-tight mb-4">
+            <h2 className="text-4xl font-bold leading-tight mb-4">
               Welcome to{" "}
               <span className="bg-gradient-to-r text-5xl from-yellow-800 to-orange-400 text-transparent bg-clip-text">
                 SAHAYOG
               </span>
             </h2>
-
-            <p className="text-xl text-black mb-4 mr-16 py-2">
+            <p className="text-xl mb-4 mr-16 py-2">
               "Streamline Speech Therapy with Sahayog: Automated, AI-Driven
-              Clinical Workflow for Enhanced Patient Care."{" "}
+              Clinical Workflow for Enhanced Patient Care."
             </p>
             <Link
               to="/login"
@@ -30,21 +35,16 @@ const Home = () => {
               Get Started
             </Link>
           </div>
-
           <div className="md:w-1/2">
             <div className="relative w-full h-[750px] bg-cover bg-center flex flex-col justify-center items-center">
-              <img
-                src={speech}
-                alt="Hero Image"
-                className="w-full rounded-xl"
-              />
+              <img src={speech} alt="Hero" className="w-full rounded-xl" />
             </div>
           </div>
         </div>
       </div>
 
       {/* Action Buttons */}
-      <div className="rounded-t-[50px] md:rounded-t-[75px] lg:rounded-t-[100px] pt-10 bg-[#80ffff] -mt-24">
+      <div className="rounded-t-[50px] md:rounded-t-[75px] lg:rounded-t-[100px] pt-10 bg-gray-100 -mt-24">
         <div className="flex flex-wrap justify-center items-center gap-4 px-10">
           <Link
             to="/login"
@@ -67,7 +67,7 @@ const Home = () => {
         </div>
 
         {/* Other Facilities */}
-        <section className="container p-6 mx-auto space-y-3 text-gray-700 dark:text-gray-800">
+        <section className="container p-6 mx-auto space-y-3 text-gray-700">
           <h4 className="text-xl font-bold capitalize md:text-3xl text-center">
             Other Facilities
           </h4>
@@ -91,6 +91,8 @@ const Home = () => {
           </div>
         </section>
       </div>
+      <CoreFeatures />
+      <Testimonials />
     </div>
   );
 };
