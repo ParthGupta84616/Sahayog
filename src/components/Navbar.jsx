@@ -64,25 +64,12 @@ export default function Navbar() {
               className="hover:font-bold text-white"
               aria-label="Home"
             >
-             About
+              About
             </Link>
-            <Link
-              to="/dashboard"
-              className="hover:font-bold text-white"
-              aria-label="Dashboard"
-            >
-              Dashboard
-            </Link>
-            <div className="items-center p-2 gap-2 ">
-              <IoMdNotifications
-                size={26}
-                className="text-[#fff] text-sm sm:text-md md:text-lg lg:text-xl"
-              />
-            </div>
+
             <Link
               className="group relative inline-flex items-center overflow-hidden rounded-3xl bg-green-400 px-4 py-2 sm:px-6 sm:py-2 text-white hover:text-gray-800 focus:outline-none focus:ring hover:bg-green-300"
               to="/login"
-              className="group relative inline-flex items-center overflow-hidden rounded-3xl bg-[#26004d] px-4 py-2 sm:px-6 sm:py-2 text-white focus:outline-none focus:ring hover:bg-[#5900b3]"
               aria-label="Login"
             >
               <span className="text-sm sm:text-lg rounded-full font-medium transition-all group-hover:me-4">
@@ -134,6 +121,13 @@ export default function Navbar() {
                   aria-label="Home"
                 >
                   Home
+                </Link>
+                <Link
+                  to="/about"
+                  className="hover:font-bold text-white"
+                  aria-label="Home"
+                >
+                  About
                 </Link>
                 <Link
                   to="/login"

@@ -8,7 +8,6 @@ import DashAdmin from "./components/DashAdmin";
 import DashPatient from "./components/DashPatient";
 import DashSuper from "./components/DashSuper";
 import DashTherapist from "./components/DashTherapist";
-import DashPatient from "./components/DashPatient";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
