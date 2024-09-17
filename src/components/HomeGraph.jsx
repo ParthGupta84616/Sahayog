@@ -95,8 +95,8 @@ const HomeGraph = () => {
   };
 
   return (
-    <div className="bg-gray-100">
-      <div className="w-full max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <div className="flex flex-row justify-center items-center bg-gray-100">
+      <div className="w-full max-w-6xl p-6 bg-gray-100 ">
         <Bar data={data} options={options} />
       </div>
     </div>

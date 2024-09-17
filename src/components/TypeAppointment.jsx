@@ -75,13 +75,31 @@ const AppointmentBooking = () => {
               onClick={() => setStep(3)}
               className="block w-full bg-gray-200 hover:bg-gray-300 text-left p-2 rounded-md mb-2"
             >
-              Clinical Oncology (CO)
+              Department of Speech Language pathology
             </button>
             <button
               onClick={() => setStep(3)}
               className="block w-full bg-gray-200 hover:bg-gray-300 text-left p-2 rounded-md mb-2"
             >
-              Preventive Oncology (PO)
+              Department of Audiology & Hearing disabilities
+            </button>
+            <button
+              onClick={() => setStep(3)}
+              className="block w-full bg-gray-200 hover:bg-gray-300 text-left p-2 rounded-md mb-2"
+            >
+              Department of Physology
+            </button>
+            <button
+              onClick={() => setStep(3)}
+              className="block w-full bg-gray-200 hover:bg-gray-300 text-left p-2 rounded-md mb-2"
+            >
+              Audilogy
+            </button>
+            <button
+              onClick={() => setStep(3)}
+              className="block w-full bg-gray-200 hover:bg-gray-300 text-left p-2 rounded-md mb-2"
+            >
+              Audilogy
             </button>
           </div>
         </div>

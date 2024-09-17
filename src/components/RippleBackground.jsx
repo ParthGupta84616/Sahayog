@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 // import speech from "../assets/speech.jpg"; // Import the image
-import rep from "../assets/report.webp"; // Import the image
+// import rep from "../assets/report.webp"; // Import the image
+import homehero from "../assets/homehero.jpg"; // Import the image
 
 const RippleBackground = () => {
   useEffect(() => {
@@ -26,7 +27,7 @@ const RippleBackground = () => {
       }
 
       .animated-gradient {
-        background: linear-gradient(90deg, #120521 ,#001310, #002d72);
+        background: linear-gradient(90deg, #036969 , #002320,#001411, #002a72);
         background-size: 400% 400%;
         animation: gradientAnimation 14s ease infinite;
       }
@@ -131,11 +132,11 @@ const RippleBackground = () => {
               Get Started
             </Link>
           </div>
-          <div className="relative w-full h-80 md:h-[400px] lg:h-[500px] xl:h-[650px] flex flex-col justify-end items-end">
+          <div className="relative md:h-[200px] lg:h-[300px] xl:h-[450px] flex flex-col justify-end items-end translate-y-[400px]">
             <img
-              src={rep}
+              src={homehero}
               alt="An illustrative depiction of speech therapy"
-              className="w-full rounded-bl-[100%] lg:rounded-bl-[100%] translate-x-40"
+              className="w-full rounded-bl-full aspect-square"
             />
           </div>
         </div>

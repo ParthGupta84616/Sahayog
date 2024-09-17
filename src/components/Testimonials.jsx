@@ -61,15 +61,15 @@ const Testimonials = () => {
   return (
     <section className="px-12 py-12 bg-gray-100 relative">
       <div className="container mx-auto px-12 py-12 bg-gray-100 relative">
-        <h2 className="text-4xl font-extrabold text-center text-blue-900 mb-12">
-          What Our Users Say
+        <h2 className="text-5xl  font-bold text-center text-[#066969] mb-12">
+          WHAT OUR USERS SAY
         </h2>
         <div className="relative">
           <Slider {...sliderSettings}>
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="p-2 shadow-lg rounded-lg border border-blue-200 text-center flex flex-col items-center"
+                className="p-2 shadow-lg bg-[#6fa093] rounded-[100px] border-2 border-[#066969] my-2 text-center flex flex-col items-center"
               >
                 <div className="mb-6 flex justify-center w-full">
                   <img
@@ -79,12 +79,12 @@ const Testimonials = () => {
                   />
                 </div>
                 <div className="mb-6 text-gray-800">
-                  <FaQuoteLeft className="text-4xl text-blue-500 inline-block mb-4" />
-                  <p className="text-lg leading-relaxed text-gray-700">
+                  <FaQuoteLeft className="text-4xl text-[#066969] inline-block mb-4" />
+                  <p className="text-lg leading-relaxed text-white">
                     {testimonial.text}
                   </p>
                 </div>
-                <h3 className="text-2xl font-semibold text-blue-900">
+                <h3 className="text-2xl font-semibold text-[#066969]">
                   {testimonial.name}
                 </h3>
                 <p className="text-base text-gray-600">{testimonial.role}</p>

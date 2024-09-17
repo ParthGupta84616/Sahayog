@@ -14,12 +14,12 @@ import RippleBackground from "../components/RippleBackground";
 
 const Home = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-white">
       {/* <WelcomeSection /> */}
       <RippleBackground />
 
       {/* Action Buttons */}
-      <div className="relative rounded-t-[50px] md:rounded-t-[75px] lg:rounded-t-[100px] pt-10 bg-gray-100 -mt-24">
+      <div className="relative rounded-t-[50px] md:rounded-t-[75px] lg:rounded-t-[100px] pt-10 bg-gray-100 -mt-16">
         <div className="flex flex-wrap justify-center items-center gap-4 px-10">
           <Link
             to="/bookapp"
@@ -42,7 +42,7 @@ const Home = () => {
         </div>
 
         {/* Other Facilities */}
-        <section className="container p-6 mx-auto space-y-3 text-gray-900">
+        <section className="container p-6 mx-auto space-y-3 text-gray-100">
           <h4 className="text-xl font-bold capitalize md:text-3xl text-center">
             Other Facilities
           </h4>
