@@ -32,31 +32,17 @@ const testimonials = [
   },
 ];
 
-// Custom Arrow Components
-const Arrow = ({ className, style, onClick, direction }) => (
-  <div
-    className={`${className} ${
-      direction === "left" ? "left-2" : "right-2"
-    } absolute top-1/2 -translate-y-1/2 z-10 bg-gray-700 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg cursor-pointer`}
-    style={style}
-    onClick={onClick}
-  >
-    {direction === "left" ? "<" : ">"}
-  </div>
-);
-
 // Slider settings
 const sliderSettings = {
   dots: true,
   infinite: true,
-  speed: 500,
+  speed: 500, // Transition speed (in milliseconds)
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 5000,
+  autoplaySpeed: 1500, // Auto-slide interval (in milliseconds)
   arrows: true,
-  prevArrow: <Arrow direction="left" />,
-  nextArrow: <Arrow direction="right" />,
+
   appendDots: (dots) => (
     <div
       style={{

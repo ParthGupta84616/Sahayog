@@ -11,7 +11,7 @@ export default function Navbar() {
 
   return (
     <div className="bg-[#008080] h-16 sm:h-20 md:h-24 lg:h-24 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12">
-      <header className="text-white body-font w-full">
+      <header className=" body-font w-full">
         <div className="container mx-auto flex flex-wrap items-center justify-between">
           {/* Logo */}
           <Link
@@ -51,37 +51,37 @@ export default function Navbar() {
           </div>
 
           {/* Navigation Links for Desktop */}
-          <nav className="hidden md:flex md:flex-wrap md:gap-6 items-center text-sm sm:text-md md:text-lg lg:text-xl">
+          <nav className="hidden md:flex md:flex-wrap md:gap-6 items-center text-md sm:text-xl md:text-lg lg:text-xl">
             <Link
               to="/"
-              className="hover:font-bold text-white"
+              className="hover:font-bold text-2xl text-[#fbfbfb]"
               aria-label="Home"
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="hover:font-bold text-white"
+              className="hover:font-bold text-2xl text-[#fbfbfb]"
               aria-label="Home"
             >
               About
             </Link>
 
             <Link
-              className="group relative inline-flex items-center overflow-hidden rounded-3xl bg-green-400 px-4 py-2 sm:px-6 sm:py-2 text-white hover:text-gray-800 focus:outline-none focus:ring hover:bg-green-300"
+              className="group relative inline-flex items-center overflow-hidden rounded-3xl  px-4 py-2 sm:px-6 sm:py-2 text-white focus:outline-none focus:ring bg-[#003366] hover:bg-[#004477]"
               to="/login"
               aria-label="Login"
             >
-              <span className="text-sm sm:text-lg rounded-full font-medium transition-all group-hover:me-4">
+              <span className="text-md sm:text-xl rounded-full font-medium transition-all group-hover:me-4">
                 Login
               </span>
             </Link>
             <Link
               to="/signup"
-              className="group relative inline-flex items-center overflow-hidden rounded-3xl bg-[#26004d] px-4 py-2 sm:px-6 sm:py-2 text-white focus:outline-none focus:ring hover:bg-[#5900b3]"
+              className="group relative inline-flex items-center overflow-hidden rounded-3xl px-4 py-2 sm:px-6 sm:py-2 text-white focus:outline-none focus:ring bg-[#993352] hover:bg-[#cc4073]"
               aria-label="Signup"
             >
-              <span className="text-sm sm:text-lg rounded-full font-medium transition-all group-hover:me-4">
+              <span className="text-md sm:text-xl rounded-full font-medium transition-all group-hover:me-4">
                 Signup
               </span>
             </Link>
@@ -89,7 +89,7 @@ export default function Navbar() {
 
           {/* Mobile Menu */}
           <div
-            className={`fixed inset-0 z-50 bg-[#ca4e00] transition-transform transform ${
+            className={`fixed inset-0 z-50 bg-[#008080] transition-transform transform ${
               isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >
@@ -117,33 +117,33 @@ export default function Navbar() {
               <nav className="flex flex-col gap-4">
                 <Link
                   to="/"
-                  className="hover:font-bold text-white"
+                  className="hover:font-bold text-[#fbfbfb]"
                   aria-label="Home"
                 >
                   Home
                 </Link>
                 <Link
                   to="/about"
-                  className="hover:font-bold text-white"
+                  className="hover:font-bold text-[#fbfbfb]"
                   aria-label="Home"
                 >
                   About
                 </Link>
                 <Link
                   to="/login"
-                  className="group relative inline-flex items-center overflow-hidden rounded-3xl bg-[#26004d] px-4 py-2 sm:px-6 sm:py-2 text-white focus:outline-none focus:ring hover:bg-[#5900b3]"
+                  className="group relative inline-flex items-center overflow-hidden rounded-3xl px-4 py-2 sm:px-6 sm:py-2 text-white focus:outline-none focus:ring bg-[#003366] hover:bg-[#004477]"
                   aria-label="Login"
                 >
-                  <span className="text-sm sm:text-lg rounded-full font-medium transition-all group-hover:me-4">
+                  <span className="text-md sm:text-xl rounded-full font-medium transition-all group-hover:me-4">
                     Login
                   </span>
                 </Link>
                 <Link
                   to="/signup"
-                  className="group relative inline-flex items-center overflow-hidden rounded-3xl bg-[#26004d] px-4 py-2 sm:px-6 sm:py-2 text-white focus:outline-none focus:ring hover:bg-[#5900b3]"
+                  className="group relative inline-flex items-center overflow-hidden rounded-3xl px-4 py-2 sm:px-6 sm:py-2 text-white focus:outline-none focus:ring bg-[#993352] hover:bg-[#cc4073]"
                   aria-label="Signup"
                 >
-                  <span className="text-sm sm:text-lg rounded-full font-medium transition-all group-hover:me-4">
+                  <span className="text-md sm:text-xl rounded-full font-medium transition-all group-hover:me-4">
                     Signup
                   </span>
                 </Link>

@@ -12,6 +12,10 @@ import DashTherapist from "./components/DashTherapist";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import BookApp from "./components/BookApp";
+import HospitalsList from "./components/HospitalsList";
+import Appointment from "./components/Appointment";
+import TypeAppointment from "./components/TypeAppointment";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +38,7 @@ const router = createBrowserRouter([
       </>
     ),
   },
-  
+
   {
     path: "/signup",
     element: (
@@ -76,6 +80,46 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/bookapp",
+    element: (
+      <>
+        <Navbar />
+        <BookApp />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/hospitalslist",
+    element: (
+      <>
+        <Navbar />
+        <HospitalsList />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/appointment/:hospitalName",
+    element: (
+      <>
+        <Navbar />
+        <Appointment />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/typeappointment/:hospitalName",
+    element: (
+      <>
+        <Navbar />
+        <TypeAppointment />
+        <Footer />
+      </>
+    ),
+  },
+  {
     path: "/casereport",
     element: (
       <>
@@ -100,7 +144,7 @@ const router = createBrowserRouter([
     element: (
       <div>
         <Navbar />
-        <About/>
+        <About />
         <Footer />
       </div>
     ),

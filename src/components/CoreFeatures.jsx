@@ -3,25 +3,25 @@ import { FaComments, FaLock, FaBrain, FaChartBar } from "react-icons/fa";
 
 const features = [
   {
-    icon: <FaBrain className="text-blue-600 text-5xl" />,
+    icon: <FaBrain className="text-[#004d4d] text-5xl" />,
     title: "AI-driven Therapy Recommendations",
     description:
       "Leverage AI to analyze patient data and provide personalized therapy recommendations for more effective treatment.",
   },
   {
-    icon: <FaLock className="text-blue-600 text-5xl" />,
+    icon: <FaLock className="text-[#004d4d] text-5xl" />,
     title: "Secure Patient Data Management",
     description:
       "Ensure that all patient data is protected using GDPR and HIPAA-compliant systems for secure storage and access control.",
   },
   {
-    icon: <FaChartBar className="text-blue-600 text-5xl" />,
+    icon: <FaChartBar className="text-[#004d4d] text-5xl" />,
     title: "Progress Tracking",
     description:
       "Track patient progress in real-time with detailed analytics and reports to ensure continuous improvement and accountability.",
   },
   {
-    icon: <FaComments className="text-blue-600 text-5xl" />,
+    icon: <FaComments className="text-[#004d4d] text-5xl" />,
     title: "Real-time Communication",
     description:
       "Enable seamless communication between therapists, supervisors, and patients to ensure timely support and feedback.",
@@ -42,17 +42,17 @@ const CoreFeatures = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="flex lg:flex-row sm:flex-col gap-8 ">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center bg-white p-8 shadow-lg rounded-lg text-center"
+                className="flex flex-col w-[90%] border-2 border-[#5f6d6d] items-center bg-[#72a0a0] p-8 rounded-[35px] text-center"
               >
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-2xl font-semibold text-gray-800">
+                <h3 className="text-2xl font-bold text-[#006666]">
                   {feature.title}
                 </h3>
-                <p className="mt-2 text-gray-600">{feature.description}</p>
+                <p className="mt-2 lg:mx-8 sm:mx-4 text-[#fbfbfb]">{feature.description}</p>
               </div>
             ))}
           </div>
