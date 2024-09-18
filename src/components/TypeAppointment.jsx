@@ -29,7 +29,7 @@ const AppointmentBooking = () => {
             <div className="mt-4">
               <button
                 onClick={() => setStep(2)}
-                className="block w-full bg-gray-200 hover:bg-gray-300 text-left p-2 rounded-md mb-2"
+                className="block w-full bg-gray-100 hover:bg-gray-200 text-left p-2 rounded-md mb-2"
               >
                 New Appointment{" "}
                 <span className="text-sm text-gray-500">
@@ -38,7 +38,7 @@ const AppointmentBooking = () => {
               </button>
               <button
                 onClick={() => setStep(2)}
-                className="block w-full bg-gray-200 hover:bg-gray-300 text-left p-2 rounded-md mb-2"
+                className="block w-full bg-gray-100 hover:bg-gray-200 text-left p-2 rounded-md mb-2"
               >
                 Follow-up Appointment{" "}
                 <span className="text-sm text-gray-500">
@@ -73,33 +73,21 @@ const AppointmentBooking = () => {
           <div className="mt-4">
             <button
               onClick={() => setStep(3)}
-              className="block w-full bg-gray-200 hover:bg-gray-300 text-left p-2 rounded-md mb-2"
+              className="block w-full bg-gray-100 hover:bg-gray-200 text-left p-2 rounded-md mb-2"
             >
               Department of Speech Language pathology
             </button>
             <button
               onClick={() => setStep(3)}
-              className="block w-full bg-gray-200 hover:bg-gray-300 text-left p-2 rounded-md mb-2"
+              className="block w-full bg-gray-100 hover:bg-gray-200 text-left p-2 rounded-md mb-2"
             >
               Department of Audiology & Hearing disabilities
             </button>
             <button
               onClick={() => setStep(3)}
-              className="block w-full bg-gray-200 hover:bg-gray-300 text-left p-2 rounded-md mb-2"
+              className="block w-full bg-gray-100 hover:bg-gray-200 text-left p-2 rounded-md mb-2"
             >
               Department of Physology
-            </button>
-            <button
-              onClick={() => setStep(3)}
-              className="block w-full bg-gray-200 hover:bg-gray-300 text-left p-2 rounded-md mb-2"
-            >
-              Audilogy
-            </button>
-            <button
-              onClick={() => setStep(3)}
-              className="block w-full bg-gray-200 hover:bg-gray-300 text-left p-2 rounded-md mb-2"
-            >
-              Audilogy
             </button>
           </div>
         </div>

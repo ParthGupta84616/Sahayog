@@ -1,125 +1,54 @@
-import React, { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
+import React from "react";
 import {
-  Chart as ChartJS,
-  LinearScale,
-  LineElement,
-  PointElement,
-  Title,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
   Tooltip,
-  Legend,
-  TimeScale,
-} from "chart.js";
-import "chartjs-adapter-date-fns";
+  ResponsiveContainer,
+} from "recharts";
 
-// Register Chart.js components
-ChartJS.register(
-  LinearScale,
-  LineElement,
-  PointElement,
-  Title,
-  Tooltip,
-  Legend,
-  TimeScale
-);
+const data = [
+  { date: "2024-09-09", patients: 108 },
+  { date: "2024-09-10", patients: 246 },
+  { date: "2024-09-11", patients: 145 },
+  { date: "2024-09-12", patients: 109 },
+  { date: "2024-09-13", patients: 273 },
+  { date: "2024-09-14", patients: 69 },
+  { date: "2024-09-15", patients: 168 },
+  { date: "2024-09-16", patients: 134 },
+  { date: "2024-09-17", patients: 108 },
+  { date: "2024-09-18", patients: 78 },
+];
 
-// Simulate fetching chart data
-const fetchChartData = async () => {
-  const today = new Date();
-  const data = [];
-  const labels = [];
-
-  for (let i = 9; i >= 0; i--) {
-    const date = new Date();
-    date.setDate(today.getDate() - i);
-    labels.push(date.toISOString());
-    data.push(Math.floor(Math.random() * 299));
-  }
-
-  return { labels, patients: data };
-};
-
-const GraphsAdmin = () => {
-  const [chartData, setChartData] = useState({ datasets: [] });
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const data = await fetchChartData();
-        setChartData({
-          labels: data.labels,
-          datasets: [
-            {
-              label: "Number of patients Over Last 10 Days",
-              data: data.labels.map((label, index) => ({
-                x: label,
-                y: data.patients[index],
-              })),
-              fill: false,
-              borderColor: "#4A90E2",
-              tension: 0.1,
-            },
-          ],
-        });
-      } catch (error) {
-        console.error("Error fetching chart data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadData();
-  }, []);
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: true,
-        position: "top",
-      },
-      tooltip: {
-        callbacks: {
-          label: (tooltipItem) => `Value: ${tooltipItem.raw.y}`,
-        },
-      },
-    },
-    scales: {
-      y: {
-        title: {
-          display: true,
-          text: "Patients",
-        },
-        min: 0,
-        max: 300,
-      },
-      x: {
-        type: "time",
-        time: {
-          unit: "day",
-          tooltipFormat: "MM/dd/yyyy", // Corrected format
-        },
-        title: {
-          display: true,
-          text: "Date",
-        },
-      },
-    },
-  };
-
-  return loading ? (
-    <div>Loading...</div>
-  ) : (
-    <div className="shadow-black shadow-sm rounded-md my-6 p-4 flex mx-1 flex-col items-center w-full max-w-full">
-      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 lg:mb-8">
-        Patient/Day
-      </h1>
-      <div className="w-full max-w-5xl h-60 md:h-80 lg:h-96 flex justify-center items-center">
-        <Line data={chartData} options={options} />
+const PatientChart = () => {
+  return (
+    <div className="w-full h-96 bg-gray-100 p-4 rounded-lg mb-36">
+      <div className="text-center mt-4">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 lg:mb-8">
+          Patient/Day
+        </h1>
+        <span className="text-gray-600 font-semibold">
+          Number of Patients Over Last 10 Days
+        </span>
       </div>
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="date" />
+          <YAxis />
+          <Tooltip />
+          <Line
+            type="monotone"
+            dataKey="patients"
+            stroke="#0000ff"
+            strokeWidth={3}
+          />
+        </LineChart>
+      </ResponsiveContainer>
     </div>
   );
 };
 
-export default GraphsAdmin;
+export default PatientChart;

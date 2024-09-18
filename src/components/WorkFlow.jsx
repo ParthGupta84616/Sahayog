@@ -1,7 +1,7 @@
 import React from "react";
 import image6 from "../assets/image6.png";
 
-const ExtraFeature = () => {
+const WorkFlow = () => {
   return (
     <div className="flex items-center bg-[#adb8b8] border-y-2 border-gray-500 m-2  justify-center">
       {/* How does it work */}
@@ -12,4 +12,4 @@ const ExtraFeature = () => {
   );
 };
 
-export default ExtraFeature;
+export default WorkFlow;

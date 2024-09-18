@@ -36,20 +36,21 @@ const testimonials = [
 const sliderSettings = {
   dots: true,
   infinite: true,
-  speed: 500, // Transition speed (in milliseconds)
+  speed: 700, // Transition speed (in milliseconds)
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 1500, // Auto-slide interval (in milliseconds)
+  autoplaySpeed: 3000, // Auto-slide interval (in milliseconds)
   arrows: true,
 
   appendDots: (dots) => (
     <div
       style={{
         position: "absolute",
-        bottom: "-30px",
+        bottom: "-40px",
         width: "100%",
         textAlign: "center",
+        bgcolor: "#066969",
       }}
     >
       <ul className="flex justify-center space-x-2">{dots}</ul>
@@ -59,17 +60,19 @@ const sliderSettings = {
 
 const Testimonials = () => {
   return (
-    <section className="px-12 py-12 bg-gray-100 relative">
+    <section className=" py-12 bg-gray-100 relative">
       <div className="container mx-auto px-12 py-12 bg-gray-100 relative">
-        <h2 className="text-5xl  font-bold text-center text-[#066969] mb-12">
+        <h2 className="text-4xl  font-bold text-center text-[#066969] mb-12">
           WHAT OUR USERS SAY
         </h2>
+        <hr className="my-6 mx-auto w-full border-1 border-[#066969]" />
+
         <div className="relative">
           <Slider {...sliderSettings}>
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="p-2 shadow-lg bg-[#6fa093] rounded-[100px] border-2 border-[#066969] my-2 text-center flex flex-col items-center"
+                className="p-2  shadow-lg bg-[#6fa093] rounded-[120px] border-2 border-[#066969] my-2 text-center flex flex-col items-center"
               >
                 <div className="mb-6 flex justify-center w-full">
                   <img
@@ -87,7 +90,7 @@ const Testimonials = () => {
                 <h3 className="text-2xl font-semibold text-[#066969]">
                   {testimonial.name}
                 </h3>
-                <p className="text-base text-gray-600">{testimonial.role}</p>
+                <p className="text-base text-gray-800">{testimonial.role}</p>
               </div>
             ))}
           </Slider>

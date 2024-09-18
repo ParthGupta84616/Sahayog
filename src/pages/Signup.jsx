@@ -4,42 +4,36 @@ import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [otp, setOtp] = useState("");
-  const [name, setName] = useState(""); // For patient signup
-  const [role, setRole] = useState(""); // For staff signup
-  const [staffNumber, setStaffNumber] = useState(""); // For staff number input
-  const [isStaff, setIsStaff] = useState(false); // Track if the user is a staff member
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
+  const [staffNumber, setStaffNumber] = useState("");
+  const [isStaff, setIsStaff] = useState(false);
   const navigate = useNavigate();
 
   const handleRoleChange = (e) => {
     const selectedRole = e.target.value;
     setRole(selectedRole);
-    setIsStaff(selectedRole !== "patient"); // If role is not patient, it's staff
+    setIsStaff(selectedRole !== "patient");
     if (selectedRole === "patient") {
-      setStaffNumber(""); // Clear staff number if switching to patient
+      setStaffNumber("");
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Create user object
     const newUser = {
       mobileNumber,
       otp,
-      name: isStaff ? undefined : name, // Patients will have a name
-      role: isStaff ? role : undefined, // Staff will have a role
-      staffNumber: isStaff ? staffNumber : undefined, // Staff will have a staff number
+      name: isStaff ? undefined : name,
+      role: isStaff ? role : undefined,
+      staffNumber: isStaff ? staffNumber : undefined,
     };
-
-    // Store user in local storage
     localStorage.setItem("user", JSON.stringify(newUser));
-
     alert("Sign up successful!");
-    navigate("/login"); // Redirect to login after signup
+    navigate("/login");
   };
 
   const handleUseTestData = () => {
-    // Predefined test data
     const testData = {
       admin: {
         mobileNumber: "1234567891",
@@ -66,7 +60,6 @@ const Signup = () => {
       },
     };
 
-    // Set test data based on role
     if (role in testData) {
       const data = testData[role];
       setMobileNumber(data.mobileNumber);
@@ -82,15 +75,16 @@ const Signup = () => {
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded shadow-md w-96"
+        className="flex flex-col justify-between bg-[#72a0a0] p-8 rounded-2xl shadow-md w-full max-w-[500px] h-auto min-h-[700px] border-2 border-[#5f6d6d]"
       >
-        <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
-        <label className="block mb-2">
+        {" "}
+        <h2 className="text-[#026969] text-3xl font-bold mb-4">Sign Up</h2>
+        <label className="block mb-2 text-lg">
           Role:
           <select
             value={role}
             onChange={handleRoleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full h-14 bg-[#fafafa] px-3 py-2 border border-[#5f6d6d] rounded-lg shadow-sm focus:outline-none focus:ring-[#006666] focus:border-[#006666]"
             required
           >
             <option value="">Select Role</option>
@@ -100,72 +94,72 @@ const Signup = () => {
             <option value="patient">Patient</option>
           </select>
         </label>
-        <label className="block mb-2">
+        <label className="block mb-2 text-lg">
           Mobile Number:
           <input
             type="text"
             value={mobileNumber}
             onChange={(e) => setMobileNumber(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full h-14 bg-[#fafafa] px-3 py-2 border border-[#5f6d6d] rounded-lg shadow-sm focus:outline-none focus:ring-[#006666] focus:border-[#006666]"
             required
           />
         </label>
-        <label className="block mb-2">
+        <label className="block mb-2 text-lg">
           OTP:
           <input
             type="text"
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full h-14 bg-[#fafafa] px-3 py-2 border border-[#5f6d6d] rounded-lg shadow-sm focus:outline-none focus:ring-[#006666] focus:border-[#006666]"
             required
           />
         </label>
         {isStaff && (
           <>
-            <label className="block mb-2">
+            <label className="block mb-2 text-lg">
               Name:
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                className="mt-1 block w-full h-14 bg-[#fafafa] px-3 py-2 border border-[#5f6d6d] rounded-lg shadow-sm focus:outline-none focus:ring-[#006666] focus:border-[#006666]"
                 required
               />
             </label>
-            <label className="block mb-2">
+            <label className="block mb-2 text-lg">
               Staff Number:
               <input
                 type="text"
                 value={staffNumber}
                 onChange={(e) => setStaffNumber(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                className="mt-1 block w-full h-14 bg-[#fafafa] px-3 py-2 border border-[#5f6d6d] rounded-lg shadow-sm focus:outline-none focus:ring-[#006666] focus:border-[#006666]"
                 required
               />
             </label>
           </>
         )}
         {!isStaff && (
-          <label className="block mb-2">
+          <label className="block mb-2 text-lg">
             Name:
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full h-14 bg-[#fafafa] px-3 py-2 border border-[#5f6d6d] rounded-lg shadow-sm focus:outline-none focus:ring-[#006666] focus:border-[#006666]"
               required
             />
           </label>
         )}
         <button
           type="submit"
-          className="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          className="w-full py-2 h-14 text-xl mt-4 bg-[#006666] text-white rounded-md hover:bg-[#004d4d]"
         >
           Sign Up
         </button>
         <button
           type="button"
           onClick={handleUseTestData}
-          className="w-full py-2 mt-4 bg-gray-500 text-white rounded-md hover:bg-gray-600"
+          className="w-full py-2 h-14  text-xl mt-4 bg-[#301010] text-white rounded-md hover:bg-[#502020]"
         >
           Use Test Data
         </button>

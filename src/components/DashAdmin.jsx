@@ -32,19 +32,15 @@ const Card = ({ title, count }) => (
   </div>
 );
 
-
 const DashboardAdmin = () => {
   return (
-    <div className="container mx-auto py-8 flex flex-wrap justify-center">
-      {/* Number of Cases */}
-      <Card title="Number of Cases" count="11" />
-
-      {/* Live Cases */}
-      <Card title="Live Cases" count="16" />
-
-      {/* Case Report */}
-      <Card title="Case Report" count="10" />
-      <GraphsAdmin />
+    <div className="bg-gray-100">
+      <div className="container mx-auto py-8 flex flex-wrap justify-center">
+        <Card title="Number of Cases" count="11" />
+        <Card title="Live Cases" count="16" />
+        <Card title="Case Report" count="10" />
+        <GraphsAdmin />
+      </div>
     </div>
   );
 };

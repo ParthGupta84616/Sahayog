@@ -37,17 +37,18 @@ const DashboardSuper = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="container mx-auto py-8 flex flex-wrap justify-center">
-      <Card title="Number of Cases" count="11" />
-
-      <Card title="Live Cases" count="16" />
-      <Card
-        title="Case Report"
-        count="10"
-        onClick={() => navigate("/casereport")} // Redirect to the CaseReportPage
-      />
-      <Card title="Case Updates" count="7" />
-      <GraphsAdmin />
+    <div className="bg-gray-100">
+      <div className="container  mx-auto py-8 flex flex-wrap justify-center">
+        <Card title="Number of Cases" count="11" />
+        <Card title="Live Cases" count="16" />
+        <Card
+          title="Case Report"
+          count="10"
+          onClick={() => navigate("/casereport")} // Redirect to the CaseReportPage
+        />
+        <Card title="Case Updates" count="7" />
+        <GraphsAdmin />
+      </div>
     </div>
   );
 };

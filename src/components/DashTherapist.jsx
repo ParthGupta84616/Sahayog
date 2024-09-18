@@ -1,5 +1,6 @@
 import React from "react";
 import GraphsAdmin from "./GraphsAdmin";
+import { useNavigate } from "react-router-dom";
 
 // Card component to avoid redundancy
 const Card = ({ title, count }) => (
@@ -33,20 +34,21 @@ const Card = ({ title, count }) => (
 );
 
 const DashTherapist = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="container mx-auto py-8 flex flex-wrap justify-center">
-      {/* Number of Cases */}
-
-      <Card title="New Jobs Assigned" count="11" />
-
-      {/* Live Cases */}
-      <Card title="Live Cases" count="16" />
-
-      {/* Case Report */}
-      <Card title="Case Report" count="10" />
-      <Card title="Case Updates" count="7" />
-
-      <GraphsAdmin />
+    <div className="bg-gray-100">
+      <div className="container  mx-auto py-8 flex flex-wrap justify-center">
+        <Card title="New Jobs Assigned" count="11" />
+        <Card title="Live Cases" count="16" />
+        <Card
+          title="Case Report"
+          count="10"
+          onClick={() => navigate("/casereport")}
+        />
+        <Card title="Case Updates" count="7" />
+        <GraphsAdmin />
+      </div>
     </div>
   );
 };

@@ -1,9 +1,8 @@
-// Appointment.js
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
 const Appointment = () => {
-  const { hospitalName } = useParams();
+  const { hospitalName, state, location } = useParams();
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
@@ -18,7 +17,10 @@ const Appointment = () => {
       {/* Consultation Mode */}
       <div className="mt-4">
         <p className="text-gray-600 font-semibold">Select consultation mode</p>
-        <Link to={`/typeappointment/${encodeURIComponent(hospitalName)}` }className="mt-2 border rounded-lg p-4 flex justify-between items-center">
+        <Link
+          to={`/typeappointment/${encodeURIComponent(hospitalName)}`}
+          className="mt-2 border rounded-lg p-4 flex justify-between items-center"
+        >
           <div>
             <p className="font-bold">Appointment</p>
             <p className="text-sm text-gray-500">
@@ -38,7 +40,10 @@ const Appointment = () => {
         <p className="text-gray-600 font-semibold">For existing appointment</p>
 
         {/* Appointment Status */}
-        <Link to='/login' className="mt-2 border rounded-lg p-4 flex justify-between items-center">
+        <Link
+          to="/login"
+          className="mt-2 border rounded-lg p-4 flex justify-between items-center"
+        >
           <p>Appointment status</p>
           <span role="img" aria-label="calendar">
             📅
@@ -46,7 +51,10 @@ const Appointment = () => {
         </Link>
 
         {/* View/Print Appointment Slip */}
-        <Link to='/login' className="mt-2 border rounded-lg p-4 flex justify-between items-center">
+        <Link
+          to="/login"
+          className="mt-2 border rounded-lg p-4 flex justify-between items-center"
+        >
           <p>View/Print appointment slip</p>
           <span role="img" aria-label="document">
             📄
@@ -54,7 +62,10 @@ const Appointment = () => {
         </Link>
 
         {/* Cancel Appointment */}
-        <Link to='/login' className="mt-2 border rounded-lg p-4 flex justify-between items-center">
+        <Link
+          to="/login"
+          className="mt-2 border rounded-lg p-4 flex justify-between items-center"
+        >
           <p>Cancel appointment</p>
           <span role="img" aria-label="trash">
             🗑️

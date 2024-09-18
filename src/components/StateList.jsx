@@ -55,58 +55,69 @@ const AFMS = [
 
 // AIIMS Data
 const AIIMS = [
-  { id: 1, name: "AIIMS", location: "New Delhi", state: "Delhi" },
-  { id: 2, name: "AIIMS", location: "Bathinda", state: "Punjab" },
-  { id: 3, name: "AIIMS", location: "Bhubaneswar", state: "Odisha" },
-  { id: 4, name: "AIIMS", location: "Patna", state: "Bihar" },
-  { id: 5, name: "AIIMS", location: "Raipur", state: "Chhattisgarh" },
+  { id: 1, name: "AIIMS New Delhi", location: "New Delhi", state: "Delhi" },
+  { id: 2, name: "AIIMS Bathinda", location: "Bathinda", state: "Punjab" },
+  {
+    id: 3,
+    name: "AIIMS Bhubaneswar",
+    location: "Bhubaneswar",
+    state: "Odisha",
+  },
+  { id: 4, name: "AIIMS Patna", location: "Patna", state: "Bihar" },
+  { id: 5, name: "AIIMS Raipur", location: "Raipur", state: "Chhattisgarh" },
   {
     id: 6,
-    name: "All India Institute of Ayurveda",
+    name: "All India Institute of Ayurveda, New Delhi",
     location: "New Delhi",
     state: "Delhi",
   },
   {
     id: 7,
-    name: "All India Institute of Medical Sciences",
+    name: "All India Institute of Medical Sciences, Deoghar",
     location: "Deoghar",
     state: "Jharkhand",
   },
   {
     id: 8,
-    name: "All India Institute of Medical Sciences",
+    name: "All India Institute of Medical Sciences, Mangalagiri",
     location: "Mangalagiri",
     state: "Andhra Pradesh",
   },
   {
     id: 9,
-    name: "All India Institute of Medical Sciences",
+    name: "All India Institute of Medical Sciences, Nagpur",
     location: "Nagpur",
     state: "Maharashtra",
   },
   {
     id: 10,
-    name: "All India Institute of Medical Sciences",
+    name: "All India Institute of Medical Sciences, Raebareli",
     location: "Raebareli",
     state: "Uttar Pradesh",
   },
   {
     id: 11,
-    name: "All India Institute of Medical Sciences",
+    name: "All India Institute of Medical Sciences, Rajkot",
     location: "Rajkot",
     state: "Gujarat",
   },
   {
     id: 12,
-    name: "All India Institute of Medical Sciences",
+    name: "All India Institute of Medical Sciences, Rishikesh",
     location: "Rishikesh",
     state: "Uttarakhand",
+  },
+  {
+    id: 13,
+    name: "All India Institute of Medical Sciences, Bhopal",
+    location: "Bhopal",
+    state: "Madhya Pradesh",
   },
 ];
 
 const StatesList = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [activeTab, setActiveTab] = useState("state"); // to handle tab switching
+  const [activeTab, setActiveTab] = useState("state");
 
   const filteredStates = indianStatesAndUTs.filter(({ state }) =>
     state.toLowerCase().includes(searchTerm.toLowerCase())
@@ -174,13 +185,10 @@ const StatesList = () => {
           {filteredStates.map(({ id, state }) => (
             <div
               key={id}
-              className="p-2 bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 transition ease-in-out duration-300"
+              className="p-2 bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-200 transition ease-in-out duration-300"
             >
               {id === 13 ? (
-                <Link
-                  to={"/hospitalslist"}
-                  className="text-gray-800 hover:underline"
-                >
+                <Link to="/hospitalslist" className="text-gray-800">
                   {state}
                 </Link>
               ) : (
@@ -193,16 +201,18 @@ const StatesList = () => {
 
       {/* AIIMS list */}
       {activeTab === "aiims" && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
           {filteredAIIMS.map(({ id, name, location, state }) => (
             <div
               key={id}
               className="p-2 bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 transition ease-in-out duration-300"
             >
-              <div>{name}</div>
-              <div className="text-gray-500">
-                {location}, {state}
-              </div>
+              <Link to={`/appointment/${encodeURIComponent(name)}`}>
+                <div>{name}</div>
+                <div className="text-gray-500">
+                  {location}, {state}
+                </div>
+              </Link>
             </div>
           ))}
         </div>
@@ -210,14 +220,18 @@ const StatesList = () => {
 
       {/* Defence(AFMS) list */}
       {activeTab === "defence" && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
+          {" "}
+          {/* Fixed this line */}
           {filteredAFMS.map(({ id, name, location }) => (
             <div
               key={id}
               className="p-2 bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 transition ease-in-out duration-300"
             >
-              <div>{name}</div>
-              <div className="text-gray-500">{location}</div>
+              <Link to={`/appointment/${encodeURIComponent(name)}`}>
+                <div>{name}</div>
+                <div className="text-gray-500">{location}</div>
+              </Link>
             </div>
           ))}
         </div>

@@ -34,14 +34,15 @@ const Card = ({ title, count }) => (
 
 const DashaPatient = () => {
   return (
-    <div className="container mx-auto py-8 flex flex-wrap justify-center">
-
-      <Card title="Upcoming Session" count="11" />
-      <Card title="Current Progress" count="16" />
-      <Card title="Previous Cases" count="10" />
-      <Card title="Contact supervisor" count="10" />
-      <Card title="Report/Feedback" count="10" />
-      <GraphsAdmin />
+    <div className="bg-gray-100">
+      <div className="container mx-auto py-8 flex flex-wrap justify-center">
+        <Card title="Upcoming Session" count="11" />
+        <Card title="Current Progress" count="16" />
+        <Card title="Previous Cases" count="10" />
+        <Card title="Contact supervisor" count="10" />
+        <Card title="Report/Feedback" count="10" />
+        <GraphsAdmin />
+      </div>
     </div>
   );
 };

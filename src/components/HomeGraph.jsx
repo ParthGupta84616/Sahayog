@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import ChartDataLabels from 'chartjs-plugin-datalabels'; // Import the plugin
+import ChartDataLabels from "chartjs-plugin-datalabels";
 
 ChartJS.register(
   CategoryScale,
@@ -18,7 +18,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  ChartDataLabels // Register the plugin
+  ChartDataLabels
 );
 
 const HomeGraph = () => {
@@ -28,58 +28,69 @@ const HomeGraph = () => {
       {
         label: "New Cases",
         data: [20880, 33752, 32793],
-        backgroundColor: "rgba(54, 162, 235, 0.6)", // Blue color for New Cases
-        borderColor: "rgba(54, 162, 235, 0.9)", // Slightly darker blue for border
-        borderWidth: 1, // Border width to simulate shadow
-        // Add shadow properties (not natively supported but using border for simulation)
-        borderSkipped: false, // Show border on all sides
+        backgroundColor: "rgba(54, 162, 235, 0.6)",
+        borderColor: "rgba(54, 162, 235, 0.9)",
+        borderWidth: 1,
+        borderSkipped: false,
       },
       {
         label: "Follow-up Cases",
         data: [33862, 57141, 84028],
-        backgroundColor: "rgba(255, 99, 132, 0.6)", // Red color for Follow-up Cases
-        borderColor: "rgba(255, 99, 132, 0.9)", // Slightly darker red for border
-        borderWidth: 1, // Border width to simulate shadow
-        borderSkipped: false, // Show border on all sides
+        backgroundColor: "rgba(255, 99, 132, 0.6)",
+        borderColor: "rgba(255, 99, 132, 0.9)",
+        borderWidth: 1,
+        borderSkipped: false,
       },
       {
         label: "Support Services",
         data: [171062, 340616, 374286],
-        backgroundColor: "rgba(75, 192, 192, 0.6)", // Green color for Support Services
-        borderColor: "rgba(75, 192, 192, 0.9)", // Slightly darker green for border
-        borderWidth: 1, // Border width to simulate shadow
-        borderSkipped: false, // Show border on all sides
+        backgroundColor: "rgba(75, 192, 192, 0.6)",
+        borderColor: "rgba(75, 192, 192, 0.9)",
+        borderWidth: 1,
+        borderSkipped: false,
       },
     ],
   };
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",
-      },
-      title: {
-        display: true,
-        text: "No. of Cases Served During Last Three Years",
-        font: {
-          size: 28,
-        },
-        color: "black",
-        padding: {
-          top: 20,
-          bottom: 20,
+        labels: {
+          font: {
+            size: 16,
+          },
         },
       },
       datalabels: {
         color: "black",
         display: true,
-        anchor: 'end',
-        align: 'top',
-        formatter: (value) => value.toLocaleString(), // Format numbers with commas
+        anchor: "end",
+        align: "top",
+        formatter: (value) => value.toLocaleString(),
+        font: {
+          size: 10,
+        },
       },
     },
     scales: {
+      x: {
+        title: {
+          display: true,
+          text: "Years",
+          font: {
+            size: 16,
+          },
+          color: "black",
+        },
+        ticks: {
+          font: {
+            size: 12,
+          },
+        },
+      },
       y: {
         beginAtZero: true,
         title: {
@@ -90,13 +101,24 @@ const HomeGraph = () => {
           },
           color: "black",
         },
+        ticks: {
+          font: {
+            size: 12,
+          },
+        },
       },
     },
   };
 
   return (
-    <div className="flex flex-row justify-center items-center bg-gray-100">
-      <div className="w-full max-w-6xl p-6 bg-gray-100 ">
+    <div className="flex flex-col items-center justify-center bg-gray-100 p-4">
+      <div className="w-full max-w-6xl h-96 mb-36">
+        <header className="text-center mb-12">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#066969]">
+            No. of Cases Served During Last Three Years
+          </h1>
+        </header>
+        <hr className=" py-4 border-1 border-[#066969]" />
         <Bar data={data} options={options} />
       </div>
     </div>
