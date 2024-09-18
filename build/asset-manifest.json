@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7ee52344.css",
+    "main.js": "/static/js/main.35520962.js",
+    "static/js/453.cae10f26.chunk.js": "/static/js/453.cae10f26.chunk.js",
+    "static/media/Sahayog.png": "/static/media/Sahayog.a61134ce6092156ffbb3.png",
+    "static/media/speech.jpg": "/static/media/speech.e70a2c287e0a5227b40d.jpg",
+    "index.html": "/index.html",
+    "main.7ee52344.css.map": "/static/css/main.7ee52344.css.map",
+    "main.35520962.js.map": "/static/js/main.35520962.js.map",
+    "453.cae10f26.chunk.js.map": "/static/js/453.cae10f26.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7ee52344.css",
+    "static/js/main.35520962.js"
+  ]
+}
